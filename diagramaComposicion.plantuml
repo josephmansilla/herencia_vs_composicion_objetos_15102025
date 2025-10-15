@@ -1,0 +1,47 @@
+@startuml
+
+class Hechicero {
+ + energiaActual: Integer
+ - energiaMaxima(): Integer
+ - curar(energia: Integer): Void
+ - puedeUsarHechizo(hechizo: Hechizo): Boolean 
+ - lanzarHechizo(hechizo): Void
+}
+
+interface Rango {
+  - energiaMaxima(): Integer
+  - puedeUsarHechizo(hechizo: Hechizo, hechicero: Hechicero): Boolean
+  - lanzoHechizo(hechizo: Hechizo, hechicero: Hechicero): Void
+}
+
+class Aprendiz {
+  + tutor: Hechicero
+  - energiaMaxima(): Integer
+  - puedeUsarHechizo(hechizo: Hechizo, hechicero: Hechicero): Boolean
+  - lanzoHechizo(hechizo: Hechizo, hechicero: Hechicero): Void
+}
+
+class ArchiMago {
+  + nivel: Integer
+  - energiaMaxima(): Integer
+  - puedeUsarHechizo(hechizo: Hechizo, hechicero: Hechicero): Boolean
+  - lanzoHechizo(hechizo: Hechizo, hechicero: Hechicero): Void
+}
+object supremo {
+  - energiaMaxima(): Integer
+  - puedeUsarHechizo(hechizo: Hechizo, hechicero: Hechicero): Boolean
+  - lanzoHechizo(hechizo: Hechizo, hechicero: Hechicero): Void
+}
+
+class Hechizo {
+  - energiaRequerida(): Integer
+  - esProhibido(): Boolean
+}
+
+Hechicero -> Rango
+Rango <|-- ArchiMago
+Rango <|-- supremo
+Rango <|-- Aprendiz
+
+Aprendiz -> Hechicero
+@enduml

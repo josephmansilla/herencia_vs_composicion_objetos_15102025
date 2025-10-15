@@ -20,7 +20,7 @@ class Hechicero {
         rango.lanzoHechizo(hechizo, self)
     }
     method permiteCambiarDeRango(hechicero) {
-        
+        // hechicero.algo() == criterio
     }
 
 }
@@ -72,7 +72,7 @@ object supremo inherits Rango {
 
 class Hechizo {
     method energiaRequerida() {
-        return 10
+        return 10 // placeholder
     }
     method esProhibido() {
         return false
